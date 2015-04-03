@@ -76,7 +76,8 @@ class Client{
                     if(resp.retcode === "0000"){
                         resolve(resp);
                     }else{
-                        if (resp.memo) resp.memo = new Buffer(resp.memo,"base64").toString("gbk");
+                        if (resp.memo && this.isBase64(resp.memo))
+                            resp.memo = new Buffer(resp.memo,"base64").toString("gbk");
                         reject(new Error(resp.memo));
                     }
                 }).catch((err)=>{
@@ -84,6 +85,10 @@ class Client{
                 });
             });
         });
+    }
+
+    isBase64(str){
+        return str && /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$/.test(str);
     }
 
     encrypt(obj){
