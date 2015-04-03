@@ -1,0 +1,7 @@
+.idea
+.git
+typings
+*.log
+test.js
+/src/*.ts
+/src/*.map

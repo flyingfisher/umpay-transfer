@@ -1,0 +1,31 @@
+{
+  "name": "umpay-transfer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flyingfisher/umpay-transfer.git"
+  },
+  "keywords": [
+    "umpay"
+  ],
+  "author": "fish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flyingfisher/umpay-transfer/issues"
+  },
+  "homepage": "https://github.com/flyingfisher/umpay-transfer",
+  "dependencies": {
+    "bluebird": "^2.9.21",
+    "iconv-lite": "^0.4.7",
+    "lodash": "^3.6.0",
+    "moment": "^2.9.0",
+    "node-rsa": "^0.2.23",
+    "underscore.string": "^3.0.3",
+    "xml2js": "^0.4.6"
+  }
+}
