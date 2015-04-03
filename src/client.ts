@@ -73,11 +73,10 @@ class Client{
 
             this.send(encrypted).then((rst)=>{
                 return this.decrypt(rst).then((resp)=>{
-                    if (resp.memo) resp.memo = new Buffer(resp.memo,"base64").toString("gbk");
-
                     if(resp.retcode === "0000"){
                         resolve(resp);
                     }else{
+                        if (resp.memo) resp.memo = new Buffer(resp.memo,"base64").toString("gbk");
                         reject(new Error(resp.memo));
                     }
                 }).catch((err)=>{
