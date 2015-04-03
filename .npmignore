@@ -5,3 +5,5 @@ typings
 test.js
 /src/*.ts
 /src/*.map
+*.ts
+*.map
