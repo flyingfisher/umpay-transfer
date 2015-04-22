@@ -164,7 +164,7 @@ class Client{
                 });
 
                 res.on("end",()=>{
-                    resolve(buf.toString());
+                    resolve(buf && buf.toString());
                 });
             });
 
