@@ -68,6 +68,11 @@ class Client{
 
     transfer(mobile, amount){
         return new Promise((resolve, reject)=>{
+            if(!mobile || !amount){
+                reject(new Error(`umpay transfer params error: mobile[${mobile}] amount[${amount}]`));
+                return;
+            }
+            
             var obj = this.createSubmitObj(mobile, amount);
             var encrypted = this.encrypt(obj);
 
@@ -98,7 +103,7 @@ class Client{
         obj["SIGN"] = this.priKey.sign(new Buffer(str, "gbk"), "base64");
         var newStr = build(obj);
         var cipher = crypto.createCipheriv("des-ecb", this.desKey, "");
-        var rst = cipher.update(newStr);
+        var rst = cipher.update(new Buffer(newStr, "gbk"));
         rst = Buffer.concat([rst,cipher.final()]);
         return rst.toString("base64");
     }
