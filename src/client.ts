@@ -78,7 +78,7 @@ class Client{
                     }else{
                         if (resp.memo && this.isBase64(resp.memo))
                             resp.memo = new Buffer(resp.memo,"base64").toString("gbk");
-                        reject(new Error(resp.memo));
+                        reject(new Error(resp.retcode+"|"+resp.memo));
                     }
                 }).catch((err)=>{
                     reject(err);
